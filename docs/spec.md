@@ -20,6 +20,7 @@ The json file contains multipolygon details providing the pixel coordinates (bou
 - Take as input the folder containing all labelled data set
 - Take as input the source file extension to process. Default being `tif`
 - Use output folder option, default being `output`
+- Ensure you preserve the bands and other features of the source image when creating the query chips
 - Use python
 - Use modular and reusable functions to read json, read "MultiPolygon" coordinates, read tif, read jpg, extracting polygon from jpg and tif
 - Fail early and explicitly. No silent fallback.

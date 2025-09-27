@@ -42,7 +42,7 @@ def process_single_dataset(json_path: str, input_folder: str, output_folder: str
             return result
 
         try:
-            test_image = load_image(str(source_image_path))
+            test_image_data = load_image(str(source_image_path))
             logger.debug(f"Successfully loaded image: {source_image_path}")
         except Exception as e:
             result['status'] = 'error'
@@ -57,7 +57,7 @@ def process_single_dataset(json_path: str, input_folder: str, output_folder: str
         result['source_image'] = source_image_path
 
         # Load source image
-        image = load_image(str(source_image_path))
+        image_data = load_image(str(source_image_path))
 
         # Extract MultiPolygon data
         multipolygon_data = extract_multipolygon_data(json_data)
@@ -75,7 +75,7 @@ def process_single_dataset(json_path: str, input_folder: str, output_folder: str
                 coordinates = feature['coordinates']
 
                 # Extract chip
-                chip = extract_chip_from_image(image, coordinates)
+                chip = extract_chip_from_image(image_data, coordinates)
 
                 # Generate filename
                 chip_filename = generate_chip_filename(class_name, filename, i + 1, extension)
